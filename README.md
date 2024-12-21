@@ -1,8 +1,8 @@
 ## DIRECTORIO DE EMPRESAS
 
-en el presente proyecto se usa:
+En el presente proyecto se usa:
 
-- [Laravel].
-- [React].
+- Laravel.
+- React.
 
 Gracias.
