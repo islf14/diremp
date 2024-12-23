@@ -16,23 +16,23 @@ Route::get('/user', function (Request $request) {
 Route::prefix('v1')->group(function(){
     //////PUBLIC
     //::PUBLIC
-    Route::get('/public/{slug}',[FrontController::Class,'catogoria']);
+    Route::get('/public/{slug}',[FrontController::class,'catogoria']);
     //::auth
-    Route::post('/auth/register',[AuthController::Class,'register']);
-    Route::post('/auth/login',[AuthController::Class,'login']);
+    Route::post('/auth/register',[AuthController::class,'register']);
+    Route::post('/auth/login',[AuthController::class,'login']);
 
     //////PRIVATE
     Route::group(['middleware'=>'auth:sanctum'], function(){
         //::auth
-        Route::post('/auth/logout',[AuthController::Class, 'logout']);
+        Route::post('/auth/logout',[AuthController::class, 'logout']);
 
         //::rol client
-        Route::apiResource('/client/empresa', EmpresaClient::Class);
+        Route::apiResource('/client/empresa', EmpresaClient::class);
 
         //::rol admin
-        Route::apiResource('/admin/user', UserController::Class);
-        Route::apiResource('/admin/category', CategoriaController::Class);
-        Route::apiResource('/admin/company', EmpresaController::Class);
+        Route::apiResource('/admin/user', UserController::class);
+        Route::apiResource('/admin/category', CategoriaController::class);
+        Route::apiResource('/admin/company', EmpresaController::class);
     });
 
 });
