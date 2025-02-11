@@ -3,6 +3,7 @@ import AuthUser from './AuthUser'
 import { useNavigate } from 'react-router'
 import Config from '../Config'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 const Login = () => {
   
@@ -55,7 +56,7 @@ const Login = () => {
               <p className='text-center mt-3'>{message}</p>
               <hr />
               <div className='d-grid text-center'>
-                Por primera vez debe <a href="/register" className=''>Registrarse</a>
+                Por primera vez debe  <Link to={'/register'} className=''>Registrarse</Link>
               </div>
             </div>
           </div>          
