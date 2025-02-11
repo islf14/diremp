@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const base_api_url = "http://127.0.0.1:8000/api/v1";
+const base_api_url = `${window.location.origin}/api/v1`;
+// console.log(base_api_url)
 
 export default {
 

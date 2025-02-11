@@ -28,7 +28,6 @@ const Login = () => {
           ({data}) => {
             if(data.success){
               console.log(data.message);
-              // console.log(data.token);
               setToken(
                 data.token,
                 data.user,
@@ -46,7 +45,7 @@ const Login = () => {
   return (
     <div className='container'>
       <div className="row justify-content-center">
-        <div className="col-sm-4">
+        <div className="col-sm-7 col-md-6 col-lg-5">
           <div className="card mt-5 mb-5">
             <div className="card-body">
               <h1 className='text-center fw-bolder'>Login</h1>

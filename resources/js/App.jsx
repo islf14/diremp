@@ -26,7 +26,7 @@ import CompanyAll from './pageadmin/CompanyAll';
 
 const App = () => {
   return (
-    <Router>
+    <Router future={{v7_startTransition: true, v7_relativeSplatPath: true}}>
       <Routes>
         <Route path="/" element={<LayoutPublic/>} >
           <Route index element={<PageHome/>} />
