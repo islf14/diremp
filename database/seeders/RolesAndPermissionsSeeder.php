@@ -19,26 +19,32 @@ class RolesAndPermissionsSeeder extends Seeder
       app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
       // create permissions
-      Permission::create(['name' => 'edit articles']);
-      Permission::create(['name' => 'delete articles']);
-      Permission::create(['name' => 'publish articles']);
-      Permission::create(['name' => 'unpublish articles']);
+      Permission::create(['name' => 'create business']);
+      Permission::create(['name' => 'update business']);
+      Permission::create(['name' => 'delete business']);
+      Permission::create(['name' => 'create category']);
+      Permission::create(['name' => 'update category']);
+      Permission::create(['name' => 'delete category']);
 
       // update cache to know about the newly created permissions (required if using WithoutModelEvents in seeders)
       app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
-
       // create roles and assign created permissions
-
-      // this can be done as separate statements
-      $role = Role::create(['name' => 'writer']);
-      $role->givePermissionTo('edit articles');
-
-      // or may be done by chaining
-      $role = Role::create(['name' => 'moderator'])
-          ->givePermissionTo(['publish articles', 'unpublish articles']);
-
       $role = Role::create(['name' => 'super-admin']);
       $role->givePermissionTo(Permission::all());
+
+      // or may be done by chaining
+      $role = Role::create(['name' => 'admin'])
+        ->givePermissionTo([
+            'create business',
+            'update business',
+            'delete business',
+            'create category',
+            'update category',
+            'delete category']);
+        // this can be done as separate statements
+        $role = Role::create(['name' => 'client']);
+        $role->givePermissionTo('update business');
+        $role->givePermissionTo('update category');
     }
 }

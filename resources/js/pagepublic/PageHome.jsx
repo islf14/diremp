@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const PageHome = () => {
-  return (
-    <div className='container '>PageHome</div>
-  )
-}
+  return <div className="container ">PageHome</div>;
+};
 
-export default PageHome
+export default PageHome;

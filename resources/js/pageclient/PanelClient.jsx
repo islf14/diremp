@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const PanelClient = () => {
-  return (
-    <div>PanelClient</div>
-  )
-}
+  return <div>PanelClient</div>;
+};
 
-export default PanelClient
+export default PanelClient;

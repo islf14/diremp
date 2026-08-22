@@ -1,19 +1,19 @@
-import React from 'react'
-import Sidebar from './Sidebar'
+import React from 'react';
+import Sidebar from './Sidebar';
 
 const CompanyAll = () => {
   return (
-    <div className='container'>
+    <div className="container">
       <div className="row">
-        <Sidebar/>
+        <Sidebar />
         <div className="col-sm-9">
           <div className="card">
-          <h1>in company all</h1>
+            <h1>in company all</h1>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CompanyAll
+export default CompanyAll;

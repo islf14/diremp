@@ -1,33 +1,32 @@
-import React, { useEffect, useState } from 'react'
-import Sidebar from './Sidebar'
-import Config from '../Config'
-import AuthUser from '../pageauth/AuthUser'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import Sidebar from './Sidebar';
+import Config from '../Config';
+import AuthUser from '../pageauth/AuthUser';
+import { Link } from 'react-router-dom';
 
 const UserAll = () => {
+  const { getToken } = AuthUser();
+  const [users, setUsers] = useState([]);
 
-  const { getToken } = AuthUser()
-  const [users, setUsers] = useState([])
-
-  useEffect( () => {
+  useEffect(() => {
     getUserAll();
-  },[])
+  }, []);
 
   const getUserAll = async () => {
     const token = { headers: { Authorization: `Bearer ${getToken()}` } };
-    const response = await Config.getUserAll(token)
-    setUsers(response.data)
+    const response = await Config.getUserAll(token);
+    setUsers(response.data);
     // console.log(response)
-  }
+  };
 
   return (
     <div className="container bg-light">
-      <div className='row'>
-        <Sidebar/>
+      <div className="row">
+        <Sidebar />
         <div className="col-sm-9 mt-3 mb-3">
           <div className="card">
             <div className="card-body">
-              <table className='table'>
+              <table className="table">
                 <thead>
                   <tr>
                     <th>Orden</th>
@@ -36,21 +35,24 @@ const UserAll = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {
-                    !users ? "...loading" : users.map(
-                      (user) => {
-                        return(
+                  {!users
+                    ? '...loading'
+                    : users.map((user) => {
+                        return (
                           <tr key={user.id}>
                             <td>{user.id}</td>
                             <td>{user.name}</td>
                             <td>
-                              <Link to={`/admin/user/edit/${user.id}`} className='btn btn-primary'>Editar</Link>
+                              <Link
+                                to={`/admin/user/edit/${user.id}`}
+                                className="btn btn-primary"
+                              >
+                                Editar
+                              </Link>
                             </td>
                           </tr>
-                        )
-                      }
-                    )
-                  }
+                        );
+                      })}
                 </tbody>
               </table>
             </div>
@@ -58,7 +60,7 @@ const UserAll = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default UserAll
+export default UserAll;
