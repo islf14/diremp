@@ -28,7 +28,8 @@ const Login = () => {
           console.log(data.message);
           setToken(data.token, data.user, data.user.roles[0].name);
         } else {
-          console.log(data.message);
+          console.error(data.message);
+          alert(data.message);
         }
       });
     });
@@ -42,6 +43,7 @@ const Login = () => {
             <div className="card-body">
               <h1 className="text-center fw-bolder">Login</h1>
               <input
+                id="email"
                 type="email"
                 className="form-control mt-3"
                 placeholder="Email"
@@ -50,6 +52,7 @@ const Login = () => {
                 required
               />
               <input
+                id="password"
                 type="password"
                 className="form-control mt-3"
                 placeholder="Password"
